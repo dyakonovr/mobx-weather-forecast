@@ -1,5 +1,14 @@
-html, body {
+:root {
+  --main-color: #7400f9;
+  --white-color: #fff;
+  --black-color: #161616;
+  --second-black-color: #323232;
+}
+
+html,
+body {
   background-color: #161616;
+  font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -9,3 +18,21 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.full-screen-block {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+

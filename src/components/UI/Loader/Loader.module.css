@@ -1,0 +1,38 @@
+ @keyframes flip {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+
+  15% {
+    transform: rotateY(-180deg) rotateX(0);
+  }
+
+  30% {
+    transform: rotateY(0) rotateX(0);
+  }
+
+  45% {
+    transform: rotateY(0) rotateX(-180deg);
+  }
+
+  60% {
+    transform: rotateX(0) rotateY(0);
+  }
+
+  80% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.icon {
+  border: 3px solid var(--white-color);
+  border-radius: 100%;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  animation: flip 4s ease-in-out infinite alternate-reverse both;
+}

@@ -1,0 +1,25 @@
+.item:not(:last-child) {
+  padding: 0 0 20px;
+  margin: 0 0 20px;
+  border-bottom: 1px solid grey;
+}
+
+.text {
+  margin: 0;
+  color: var(--white-color);
+}
+
+.value {
+  font-size: 40px;
+}
+
+.currency {
+  margin: 0 0 0 7px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.card {
+  font-size: 17px;
+  color: grey;
+}

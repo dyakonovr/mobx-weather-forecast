@@ -5,6 +5,7 @@
   border-radius: 20px;
   width: 373px;
   height: 750px;
+  overflow: hidden;
 }
 
 .header {
@@ -17,6 +18,7 @@
   padding: 3px 10px 5px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  z-index: 30;
 }
 
 .unibrow {
@@ -33,7 +35,7 @@
 
 .provider {
   margin: 0;
-  color: #fff;
+  color: var(--white-color);
 }
 
 .battery {
@@ -44,11 +46,11 @@
 
 .application {
   width: 100%;
-  height: calc(100% - 25px);
+  height: calc(100% - 18px);
 }
 
-.application > div:first-child {
-  padding: 25px 0 0;
+.wrapper {
+  padding: 25px 15px 0;
   border-radius: 12px;
   height: 100%;
 }

@@ -11,7 +11,9 @@ const Phone = ({ children }) => {
         </div>
       </div>
       <div className={classes.application}>
-        {children}
+        <div className={classes.wrapper}>
+          {children}
+        </div>
       </div>
     </div>
   );
