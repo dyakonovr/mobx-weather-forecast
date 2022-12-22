@@ -60,8 +60,12 @@
   cursor: pointer;
 }
 
-.number:last-child {
+.number:nth-child(10) {
   grid-column: 2;
+}
+
+.number:last-child {
+  grid-column: 3;
 }
 
 .number:hover {

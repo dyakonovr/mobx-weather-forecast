@@ -3,8 +3,27 @@ import authStore from '../../store/authStore';
 import { observer } from 'mobx-react-lite';
 import AnimationPage from '../AnimatedPage/AnimatedPage';
 import screenStatus from '../../store/screenStatus';
+import { useEffect } from 'react';
+
 
 const AuthScreen = observer(() => {
+
+  // Обрабатываю нажатие на клавиатуру
+  useEffect(() => {
+    function handleKeybordPress(e) {
+      if (Number(e.key)) handleNumberClick(e.key); // Если мы нажали на цифру
+      if (e.key === "Backspace") authStore.eraseLastNumber();
+    }
+    document.addEventListener('keyup', handleKeybordPress);
+
+    // При окончании авторизации - "открутить" слушатель
+    return function () {
+      document.removeEventListener('keyup', handleKeybordPress);
+    }
+  });
+  // Обрабатываю нажатие на клавиатуру END
+
+
   // Функции
 
   function handleNumberClick(value) {
@@ -34,10 +53,21 @@ const AuthScreen = observer(() => {
           className={classes.number}
           onClick={(e) => { handleNumberClick(e.target.dataset.value) }}
           data-value={i <= 9 ? i : 0} key={i}>
-            {i <= 9 ? i : 0}
+          {i <= 9 ? i : 0}
         </li>
       )
     }
+
+    // Добавляю кнопку "Стереть"
+    numbersList.push(
+      <li
+        className={classes.number}
+        onClick={() => { authStore.eraseLastNumber() }}
+        key={11}
+      >
+        &lArr;
+      </li>
+    );
 
     return numbersList;
   }

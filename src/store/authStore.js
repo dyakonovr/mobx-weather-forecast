@@ -31,6 +31,10 @@ export class AuthStore {
   setPopupIsOpen(popupIsOpen) {
     this.values = { ...this.values, popupIsOpen }
   }
+
+  eraseLastNumber() {
+    this.values = { ...this.values, currentInput: this.values.currentInput.substring(0, this.values.currentInput.length - 1) }
+  }
 }
 
 export default new AuthStore();
