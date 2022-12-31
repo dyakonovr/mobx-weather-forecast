@@ -1,8 +1,11 @@
+import { useRef } from 'react';
 import userData from '../../../store/userData';
 import Wallet from '../Wallet/Wallet';
 import classes from './Wallets.module.css'
 
 function Wallets() {
+  const walletsListRef = useRef(null);
+
   // Функции
 
   function createWalletsList() {
@@ -10,7 +13,9 @@ function Wallets() {
     const walletsObj = userData.values.wallets;
 
     for (let currentCurrencyObj of walletsObj) {
-      walletsList.push(<Wallet key={currentCurrencyObj.name} obj={currentCurrencyObj} />)
+      walletsList.push(
+        <Wallet obj={currentCurrencyObj} key={Math.random()} />
+      );
     }
 
     return walletsList;
@@ -20,7 +25,7 @@ function Wallets() {
 
 
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} ref={walletsListRef}>
       <strong className={classes.title}>Кошельки</strong>
       <ul className={classes.list}>
         {createWalletsList()}

@@ -1,0 +1,28 @@
+.wrapper {
+  margin: 50px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - 50px);
+}
+
+.icon {
+  margin: 30px 0;
+  font-size: 80px;
+  color: var(--white-color);
+}
+
+.label {
+  margin: 40px 0 0;
+  color: var(--white-color);
+}
+
+.btn {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: none;
+  width: calc(100% + 30px);
+  height: 50px;
+  margin: auto 0 0 0;
+  font-size: 18px;
+}

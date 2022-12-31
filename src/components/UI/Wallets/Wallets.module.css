@@ -5,6 +5,7 @@
   margin: 70px 0 0 0;
   background-color: var(--second-black-color);
   border-radius: 15px;
+  max-height: calc(100% - 350px);
 }
 
 .title {
@@ -16,4 +17,5 @@
 .list {
   list-style: none;
   padding: 0;
+  overflow-y: auto;
 }

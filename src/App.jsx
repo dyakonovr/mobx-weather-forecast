@@ -9,6 +9,7 @@ import { observer } from 'mobx-react-lite';
 import AuthScreen from './components/AuthScreen/AuthScreen';
 import Preloader from './components/Preloader/Preloader';
 import AnimatedPage from './components/AnimatedPage/AnimatedPage';
+import ConversionScreen from './components/ConversionScreen/ConversionScreen';
 
 const App = observer(() => {
   const url = 'https://6341ca7920f1f9d79979deb0.mockapi.io/mobx_bank_app';
@@ -44,6 +45,7 @@ const App = observer(() => {
         {screenStatus.values.auth && <AnimatedPage><AuthScreen /></AnimatedPage>}
         {screenStatus.values.loading && <AnimatedPage><LoadingScreen /></AnimatedPage>}
         {screenStatus.values.home && <AnimatedPage notFullScreen={true}><Home /></AnimatedPage>}
+        {screenStatus.values.conversion && <AnimatedPage notFullScreen={true}><ConversionScreen /></AnimatedPage>}
       </>
   }
 

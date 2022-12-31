@@ -11,7 +11,7 @@ const AuthScreen = observer(() => {
   // Обрабатываю нажатие на клавиатуру
   useEffect(() => {
     function handleKeybordPress(e) {
-      if (Number(e.key)) handleNumberClick(e.key); // Если мы нажали на цифру
+      if (Number(e.key) >= 0 && Number(e.key) <= 9) handleNumberClick(e.key); // Если мы нажали на цифру
       if (e.key === "Backspace") authStore.eraseLastNumber();
     }
     document.addEventListener('keyup', handleKeybordPress);
@@ -30,9 +30,9 @@ const AuthScreen = observer(() => {
     authStore.enterPinCode(value); // Передаю число, к-ое нажал пользователь в state
 
     const currentInputCode = authStore.values.currentInput;
-    const userCode = authStore.values.code;
 
     if (currentInputCode.length === 4) { // Если в текущем вводе 4 цифры
+      const userCode = authStore.values.code;
       if (currentInputCode === userCode) {
         authStore.setAuthIsDone(true); // Устанавливаю флаг, что авторизация пройдена успешно
         screenStatus.setCurrentScreen("loading");
@@ -92,9 +92,9 @@ const AuthScreen = observer(() => {
 
       {authStore.values.popupIsOpen &&
         <AnimationPage>
-          <div className={classes.popup}>
+          <div className={classes.popup} onClick={() => { authStore.setPopupIsOpen(false) }}>
             <strong className={classes.warning}>Неверный PIN-код</strong>
-            <button className={classes.button} onClick={() => authStore.setPopupIsOpen(false)}>OK</button>
+            <button className={classes.button}>OK</button>
           </div>
         </AnimationPage>}
     </div>

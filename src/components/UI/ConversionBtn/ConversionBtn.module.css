@@ -1,0 +1,18 @@
+.btn {
+  position: absolute;
+  left: -30px;
+  bottom: 0;
+  width: calc(100% + 25px * 2);
+  height: 60px;
+  font-size: 20px;
+  color: var(--white-color);
+  background-color: var(--main-color);
+  border: none;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: var(--main-color);
+  background-color: var(--white-color);
+}

@@ -66,6 +66,7 @@
 
 .number:last-child {
   grid-column: 3;
+  padding: 10px 15px;
 }
 
 .number:hover {

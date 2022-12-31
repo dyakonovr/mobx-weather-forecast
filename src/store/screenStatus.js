@@ -4,7 +4,8 @@ export class ScreenStatus {
   values = {
     auth: false,
     loading: false,
-    home: false
+    home: false,
+    conversion: false,
   };
 
   constructor() {

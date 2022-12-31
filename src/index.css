@@ -5,6 +5,12 @@
   --second-black-color: #323232;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   background-color: #161616;
@@ -36,3 +42,13 @@ body {
   border-radius: 15px;
 }
 
+.main-hover-animation {
+  color: var(--white-color);
+  background-color: var(--main-color);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.main-hover-animation:hover {
+  color: var(--main-color);
+  background-color: var(--white-color);
+}
