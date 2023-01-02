@@ -1,0 +1,30 @@
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  left: -15px;
+  top: -15px;
+  padding: 15px;
+  width: calc(100% + 15px * 2);
+  height: calc(100% + 15px * 2);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 15;
+}
+
+.warning {
+  font-size: 30px;
+  color: var(--white-color);
+  text-align: center;
+}
+
+.button {
+  margin: 30px 0 0 0;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}

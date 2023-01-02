@@ -5,16 +5,16 @@ import classes from './Wallets.module.css'
 
 function Wallets() {
   const walletsListRef = useRef(null);
-
+  
   // Функции
 
   function createWalletsList() {
     let walletsList = [];
     const walletsObj = userData.values.wallets;
 
-    for (let currentCurrencyObj of walletsObj) {
+    for (let cardNumber in walletsObj) {
       walletsList.push(
-        <Wallet obj={currentCurrencyObj} key={Math.random()} />
+        <Wallet cardNumber={cardNumber} obj={walletsObj[cardNumber]} key={Math.random()} />
       );
     }
 
@@ -22,7 +22,6 @@ function Wallets() {
   }
 
   // Функции END
-
 
   return (
     <div className={classes.wrapper} ref={walletsListRef}>

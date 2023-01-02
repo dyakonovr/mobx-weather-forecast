@@ -4,7 +4,7 @@ const Phone = ({ children }) => {
   // Функции
   function getTime() {
     const time = new Date();
-    return `${time.getHours()}:${time.getMinutes()}`
+    return `${time.getHours()}:${time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes()}`
   }
   // Функции END
 

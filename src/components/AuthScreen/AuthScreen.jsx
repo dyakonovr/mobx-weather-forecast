@@ -1,9 +1,10 @@
 import classes from './AuthScreen.module.css'
 import authStore from '../../store/authStore';
 import { observer } from 'mobx-react-lite';
-import AnimationPage from '../AnimatedPage/AnimatedPage';
 import screenStatus from '../../store/screenStatus';
 import { useEffect } from 'react';
+import Popup from '../UI/Popup/Popup';
+import popupStore from '../../store/popupStore';
 
 
 const AuthScreen = observer(() => {
@@ -39,7 +40,7 @@ const AuthScreen = observer(() => {
       }
       else {
         authStore.resetCurrentInput(); // Сбрасываю текущий ввод
-        authStore.setPopupIsOpen(true);
+        popupStore.togglePopup();
       }
     }
   }
@@ -50,7 +51,7 @@ const AuthScreen = observer(() => {
     for (let i = 1; i < 11; i++) {
       numbersList.push(
         <li
-          className={classes.number}
+          className={[classes.number, "main-hover-animation"].join(' ')}
           onClick={(e) => { handleNumberClick(e.target.dataset.value) }}
           data-value={i <= 9 ? i : 0} key={i}>
           {i <= 9 ? i : 0}
@@ -61,7 +62,7 @@ const AuthScreen = observer(() => {
     // Добавляю кнопку "Стереть"
     numbersList.push(
       <li
-        className={classes.number}
+        className={[classes.number, "main-hover-animation"].join(' ')}
         onClick={() => { authStore.eraseLastNumber() }}
         key={11}
       >
@@ -90,13 +91,7 @@ const AuthScreen = observer(() => {
         </ul>
       </div>
 
-      {authStore.values.popupIsOpen &&
-        <AnimationPage>
-          <div className={classes.popup} onClick={() => { authStore.setPopupIsOpen(false) }}>
-            <strong className={classes.warning}>Неверный PIN-код</strong>
-            <button className={classes.button}>OK</button>
-          </div>
-        </AnimationPage>}
+      {popupStore.data.isOpen && <Popup />}
     </div>
   );
 })

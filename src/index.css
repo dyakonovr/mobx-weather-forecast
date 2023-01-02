@@ -52,3 +52,14 @@ body {
   color: var(--main-color);
   background-color: var(--white-color);
 }
+
+.secondary-hover-animation {
+  color: var(--main-color);
+  background-color: var(--white-color);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.secondary-hover-animation:hover {
+  color: var(--white-color);
+  background-color: var(--main-color);
+}

@@ -12,11 +12,8 @@
 
 .option {
   padding: 15px;
-  background-color: var(--main-color);
   opacity: 0;
   visibility: hidden;
-  color: var(--white-color);
-  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
 .option:last-child {
@@ -35,9 +32,4 @@
   border-bottom: 3px solid var(--black-color);
   opacity: 1;
   visibility: visible;
-}
-
-.option:hover {
-  background-color: var(--white-color);
-  color: var(--main-color);
 }

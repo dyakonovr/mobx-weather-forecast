@@ -5,7 +5,6 @@ export class AuthStore {
     code: "",
     authIsDone: false,
     currentInput: "",
-    popupIsOpen: false,
   };
 
   constructor() {
@@ -26,10 +25,6 @@ export class AuthStore {
 
   setAuthIsDone(authIsDone) {
     this.values = { ...this.values, authIsDone };
-  }
-
-  setPopupIsOpen(popupIsOpen) {
-    this.values = { ...this.values, popupIsOpen }
   }
 
   eraseLastNumber() {
