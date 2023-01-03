@@ -1,5 +1,4 @@
 import { makeAutoObservable } from 'mobx';
-import screenStatus from './screenStatus';
 
 export class PopupStore {
   data = {

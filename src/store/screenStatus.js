@@ -1,5 +1,4 @@
 import { makeAutoObservable } from 'mobx';
-import SuccessfulTransferScreen from './../components/SuccessfulTransferScreen/SuccessfulTransferScreen';
 
 export class ScreenStatus {
   values = {

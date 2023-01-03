@@ -16,7 +16,7 @@ const AuthScreen = observer(() => {
         colorButtonByKeyboard(e.key);
         handleNumberClick(e.key);
       }
-      if (e.key === "Backspace") {
+      if (e.key === "Backspace") { // Если мы нажали Backspace
         colorButtonByKeyboard(e.key);
         authStore.eraseLastNumber();
       }
@@ -37,6 +37,7 @@ const AuthScreen = observer(() => {
     const selector = `.${classes.number}[data-value="${value}"]`;
     const currentBtn = document.querySelector(selector);
 
+    // Эмулирую hover-эффект для кнопки
     currentBtn.classList.add("auth-btn-active");
     setTimeout(() => {
       currentBtn.classList.remove("auth-btn-active");

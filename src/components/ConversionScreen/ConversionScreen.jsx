@@ -7,13 +7,12 @@ import { useRef } from 'react';
 import popupStore from '../../store/popupStore';
 import Popup from '../UI/Popup/Popup';
 import { observer } from 'mobx-react-lite';
-import screenStatus from '../../store/screenStatus';
 
 function ConversionScreen() {
-  const fromCardRef = useRef(null);
-  const toCardRef = useRef(null);
-  const inputRef = useRef(null);
-  const transferBtnRef = useRef(null);
+  const fromCardRef = useRef(null); // Ссылка на первый <select> для карты, с к-ой переводят
+  const toCardRef = useRef(null); // Ссылка на второй <select> для карты, на к-ую переводят
+  const inputRef = useRef(null); // Ссылка на <input /> с вводом суммы перевода
+  const transferBtnRef = useRef(null); // Кнопка, "обрабатывающая" перевод
 
   // Функции
   function createOptionsValues(defaultValue, optionsValues) { // Создаю конечный массив со значениями ВСЕХ <option>
@@ -38,6 +37,7 @@ function ConversionScreen() {
   }
 
   function handleButtonClick() {
+    // Получаю номера карт
     const fromCard = fromCardRef.current.dataset.card;
     const toCard = toCardRef.current.dataset.card;
 

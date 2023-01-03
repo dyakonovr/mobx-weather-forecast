@@ -14,7 +14,7 @@ function Wallets() {
 
     for (let cardNumber in walletsObj) {
       walletsList.push(
-        <Wallet cardNumber={cardNumber} obj={walletsObj[cardNumber]} key={Math.random()} />
+        <Wallet cardNumber={cardNumber} obj={walletsObj[cardNumber]} key={cardNumber} />
       );
     }
 
