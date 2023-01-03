@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import screenStatus from './screenStatus';
 
 export class UserData {
   values = {
@@ -52,8 +53,12 @@ export class UserData {
       fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${toCurrency}&from=${fromCurrency}&amount=${inputValue}`, requestOptions)
         .then(response => response.json())
         .then(responseObj => {
+          const resultValue = Number(responseObj.result.toFixed(2)); // Оставляю только два знака после запятой
           fromCardObj.value -= inputValue;
-          toCardObj.value += responseObj.result;
+          toCardObj.value += resultValue;
+        })
+        .then(() => {
+          screenStatus.setCurrentScreen("successfulTransfer");
         })
         .catch(error => console.log('Error: ', error));
     }

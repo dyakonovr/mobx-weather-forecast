@@ -90,7 +90,6 @@ const AuthScreen = observer(() => {
           {createNumberList()}
         </ul>
       </div>
-
       {popupStore.data.isOpen && <Popup />}
     </div>
   );

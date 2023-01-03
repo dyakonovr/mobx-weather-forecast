@@ -13,6 +13,7 @@ function ConversionScreen() {
   const fromCardRef = useRef(null);
   const toCardRef = useRef(null);
   const inputRef = useRef(null);
+  const transferBtnRef = useRef(null);
 
   // Функции
   function createOptionsValues(defaultValue, optionsValues) { // Создаю конечный массив со значениями ВСЕХ <option>
@@ -51,7 +52,8 @@ function ConversionScreen() {
 
       if (inputValue > 0 && inputValue <= fromCardBalance) {
         userData.transferMoney(fromCard, toCard, inputValue);
-        screenStatus.setCurrentScreen("successfulTransfer");
+        transferBtnRef.current.classList.add(classes.btn_disabled);
+        transferBtnRef.current.dataset.disabled = "disabled";
       }
 
       else {
@@ -77,7 +79,7 @@ function ConversionScreen() {
         <span className={classes.icon}>&dArr;</span>
         <CustomSelect ref={toCardRef} valuesArr={createOptionsValues('Куда переводим:', optionsArray)} />
         <CustomInput ref={inputRef} type={"text"} id={"value"} placeholder={"100.000"} labelText={"Сколько переводим?"} />
-        <button className={[classes.btn, "main-hover-animation"].join(' ')} onClick={handleButtonClick}>Перевести</button>
+        <button ref={transferBtnRef} className={[classes.btn, "main-hover-animation"].join(' ')} onClick={handleButtonClick}>Перевести</button>
       </div>
       {popupStore.data.isOpen && <Popup />}
     </>
