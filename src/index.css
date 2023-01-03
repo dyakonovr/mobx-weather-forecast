@@ -48,7 +48,8 @@ body {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 }
 
-.main-hover-animation:hover {
+.main-hover-animation:hover,
+.auth-btn-active {
   color: var(--main-color);
   background-color: var(--white-color);
 }

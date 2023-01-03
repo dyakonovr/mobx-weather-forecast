@@ -12,8 +12,14 @@ const AuthScreen = observer(() => {
   // Обрабатываю нажатие на клавиатуру
   useEffect(() => {
     function handleKeybordPress(e) {
-      if (Number(e.key) >= 0 && Number(e.key) <= 9) handleNumberClick(e.key); // Если мы нажали на цифру
-      if (e.key === "Backspace") authStore.eraseLastNumber();
+      if (Number(e.key) >= 0 && Number(e.key) <= 9) { // Если мы нажали на цифру
+        colorButtonByKeyboard(e.key);
+        handleNumberClick(e.key);
+      }
+      if (e.key === "Backspace") {
+        colorButtonByKeyboard(e.key);
+        authStore.eraseLastNumber();
+      }
     }
     document.addEventListener('keyup', handleKeybordPress);
 
@@ -26,6 +32,16 @@ const AuthScreen = observer(() => {
 
 
   // Функции
+
+  function colorButtonByKeyboard(value) {
+    const selector = `.${classes.number}[data-value="${value}"]`;
+    const currentBtn = document.querySelector(selector);
+
+    currentBtn.classList.add("auth-btn-active");
+    setTimeout(() => {
+      currentBtn.classList.remove("auth-btn-active");
+    }, 175);
+  }
 
   function handleNumberClick(value) {
     authStore.enterPinCode(value); // Передаю число, к-ое нажал пользователь в state
@@ -64,6 +80,7 @@ const AuthScreen = observer(() => {
       <li
         className={[classes.number, "main-hover-animation"].join(' ')}
         onClick={() => { authStore.eraseLastNumber() }}
+        data-value="Backspace"
         key={11}
       >
         &lArr;
