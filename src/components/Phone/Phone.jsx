@@ -1,4 +1,5 @@
 import classes from './Phone.module.css';
+import batteryImage from '../../assets/battery.svg';
 
 const Phone = ({ children }) => {
   // Функции
@@ -15,7 +16,7 @@ const Phone = ({ children }) => {
         <div className={classes.unibrow}></div>
         <span className={classes.time}>{getTime()}</span>
         <div className={classes.battery}>
-          <img src="./src/assets/battery.svg" alt="Иконка зарядки" />
+          <img src={batteryImage} alt="Иконка зарядки" />
         </div>
       </div>
       <div className={classes.application}>
